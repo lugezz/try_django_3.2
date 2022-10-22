@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}Crear nuevo de artículo{% endblock%} {% block content %}
+<h1>Crear Nuevo Artículo</h1>
+
+{% if not created %}
+
+<div style="margin-top: 30px;">
+    <form action="" method="POST">
+        {% csrf_token %} {{ form.as_p }}
+
+        <input type="submit" value="Crear Artículo">
+    </form>
+</div>
+
+{% else %}
+
+<p>Your article <b>{{ obj.title }}</b>, clic <a href="/articles/{{ obj.id}}">here</a> to see it</p>
+
+{% endif %} {% endblock%}

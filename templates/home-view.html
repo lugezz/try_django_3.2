@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %}Probando Extends{% endblock %} {% block content %}
+<h1>{{title}} (id: {{id}})!</h1>
+<p>{{content}}</p>
+<ul>
+    {% for i in obj_list %}
+    <li><b><a href="/articles/{{ i.id}}">{{ i.title }}</a></b> - {{ i.content }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
