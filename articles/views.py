@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.views.generic import CreateView
 
-from .forms import ArticleForm
-from .models import Article
+from articles.forms import ArticleForm
+from articles.models import Article
 
 
 def article_view(request, id_art):
@@ -51,3 +52,9 @@ def article_create(request):
             context['created'] = True
 
     return render(request, 'articles/create.html', context)
+
+
+class ArticleCreate(CreateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = 'articles/create.html'
